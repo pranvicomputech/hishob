@@ -153,5 +153,5 @@ function calculate() {
     grandTotal = total1 + total2 + total3
     totalWeight = myWeight1 + myWeight2 + myWeight3
     totalWeight = totalWeight.toFixed(2)
-    document.getElementById('final').innerHTML = `एकूण रुपये <b> ${grandTotal}/- </b> एकूण वजन ${totalWeight} कि. ग्रॅ.`
+    document.getElementById('final').innerHTML = `एकूण रुपये <b> ${grandTotal}/- </b> <br>एकूण वजन ${totalWeight} कि. ग्रॅ.`
 }
