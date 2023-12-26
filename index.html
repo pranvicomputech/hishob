@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <link rel="stylesheet" href="style.css">
+<head>   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,45 +13,47 @@
     <style>
         th {
             text-align: center;
-        }
-
+        }  
         td {
-            width: 10%;
+            width: 20%;            
         }
 
         input,
         p,
         label {
-            text-align: right;
+            text-align: right;            
         }
 
         body {
             font-size: 150%;
+            text-shadow: 0px 0px 1px violet;
         }
 
         .form-control,
         label {
-            font-size: 105%;
+            font-size: 105%;            
+            padding: 0px;
+            margin: 0px;            
         }
 
         .box {
-            border: 1px solid red;
-            padding: 2%;            
+            border: 3px groove red;
+            padding: 0% 2% 1% 2%;
             border-radius: 10px;
             background: linear-gradient(white, orange, white);
         }
     </style>
 </head>
 
-<body class="container-fluid">    
-    <div align = "center">
-        <small style="color: red; font-size: 70%;" >||श्री || </small>
+<body class="container-fluid">
+    <div align="center">
+        <small style="color: red; font-size: 70%;">||श्री|| </small>
     </div>
-    <div class="w-75 mx-auto box">        
+    <div class="w-75 mx-auto box">
         <p>
-            <small id='today'></small>
+            <small style="font-size: 70%;" id='today'></small>
         </p>
-        <h2 class="text-danger">मे कमलाकर वामनराव ठाकूर </h2>
+        <h2 class="text-danger mx-auto" align="center" style="text-decoration: underline;">मे कमलाकर वामनराव ठाकूर </h2>
         <h3 class="text-primary" id='final'>.<br>. </h3>
         <table class="table table-bordered table-warning table-striped table-xl table-hover">
             <thead>
@@ -95,6 +96,8 @@
                 </tr>
             </tbody>
         </table>
+        <label class=" float-left m-2">एकूण दिलेले पैसे</label>
+        <input type="number" id='return' class="w-50 float-left form-control my-2" placeholder="" onfocus="this.value = ''" onblur = "calculate()">
         <button class="btn btn-outline-success btn-block" disabled>Touch here</button>
     </div>
     <script src="./script.js"></script>

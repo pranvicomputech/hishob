@@ -22,6 +22,7 @@ function checkUndefined() {
     document.getElementById('rate1').value = 0
     document.getElementById('rate2').value = 0
     document.getElementById('rate3').value = 0
+    document.getElementById('return').value = 0
 }
 
 function calcraw1() {
@@ -134,6 +135,8 @@ function calculate() {
         myWeight3 = parseFloat(document.getElementById('raw3').value)
     grandTotal = total1 + total2 + total3
     totalWeight = myWeight1 + myWeight2 + myWeight3
-    totalWeight = totalWeight.toFixed(2)
-    document.getElementById('final').innerHTML = `एकूण रुपये <b> ${grandTotal}/- </b> <br>एकूण वजन ${totalWeight} कि. ग्रॅ.`
+    totalWeight = totalWeight.toFixed(3)
+    let paid = parseInt(document.getElementById('return').value)    
+    let myReturn = paid - grandTotal
+    document.getElementById('final').innerHTML = `एकूण ₹ <b> ${grandTotal}/- </b> <span class='float-right'>एकूण परत ₹ ${myReturn}</span> <br>एकूण वजन ${totalWeight} कि. ग्रॅ.`
 }
