@@ -1,25 +1,46 @@
 let clbr = 270
 const date = new Date();
-
 let day = date.getDate();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
-const weekday = ["रविवार", "सोमवार", "मंगळवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+const weekday = ["रविवार", "सोमवार", "मंगळवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"];
 let dayName = weekday[date.getDay()];
 // This arrangement can be altered based on how we want the date's format to appear.
 let currentDate = `${day}-${month}-${year} ${dayName}`;
 document.getElementById('today').innerHTML = currentDate
-document.getElementById('total1').value = 0
-document.getElementById('total2').value = 0
-document.getElementById('total3').value = 0
-document.getElementById('color1').value = 0
-document.getElementById('color2').value = 0
-document.getElementById('color3').value = 0
-document.getElementById('raw1').value = 0
-document.getElementById('raw2').value = 0
-document.getElementById('raw3').value = 0
+checkUndefined()
+function checkUndefined() {
+    //if (document.getElementById('total1').value == undefined)
+        document.getElementById('total1').value = 0
+    //if (document.getElementById('total2').value == undefined)
+        document.getElementById('total2').value = 0
+    //if (document.getElementById('total3').value == undefined)
+        document.getElementById('total3').value = 0
+    //if (document.getElementById('color1').value == undefined)
+        document.getElementById('color1').value = 0
+    //if (document.getElementById('color2').value == undefined)
+        document.getElementById('color2').value = 0
+    //if (document.getElementById('color3').value == undefined)
+        document.getElementById('color3').value = 0
+    //if (document.getElementById('raw1').value == undefined)
+        document.getElementById('raw1').value = 0
+    //if (document.getElementById('raw2').value == undefined)
+        document.getElementById('raw2').value = 0
+    //if (document.getElementById('raw3').value == undefined)
+        document.getElementById('raw3').value = 0
+    //if (document.getElementById('rate1').value == undefined)
+        document.getElementById('rate1').value = 0
+    //if (document.getElementById('rate2').value == undefined)
+        document.getElementById('rate2').value = 0
+    //if (document.getElementById('rate3').value == undefined)
+        document.getElementById('rate3').value = 0
+}
+
 function calcraw1() {
+    //checkUndefined()
     let color1 = document.getElementById('color1').value
+    if(color1 == '')
+    document.getElementById('color1').value = 0
     if (color1 == undefined)
         color1 = 0
     document.getElementById('raw1').value = (color1 / .75).toFixed(2)
@@ -27,6 +48,7 @@ function calcraw1() {
 }
 
 function calctotal1() {
+    //checkUndefined()
     let colorring = 0
     let color1 = document.getElementById('color1').value
     let raw1 = document.getElementById('raw1').value
@@ -48,14 +70,18 @@ function calctotal1() {
 
 /////////////////////////////////
 function calcraw2() {
+    //checkUndefined()
     let color2 = document.getElementById('color2').value
+    if(color2 == '')
+    document.getElementById('color2').value = 0
     if (color2 == undefined)
         color2 = 0
     document.getElementById('raw2').value = (color2 / .75).toFixed(2)
-    calctotal1()
+    calctotal2()
 }
 
 function calctotal2() {
+    //checkUndefined()
     let colorring = 0
     let color2 = document.getElementById('color2').value
     let raw2 = document.getElementById('raw2').value
@@ -77,7 +103,10 @@ function calctotal2() {
 
 /////////////////////////////////
 function calcraw3() {
+    //checkUndefined()
     let color3 = document.getElementById('color3').value
+    if(color3 == '')
+    document.getElementById('color3').value = 0
     if (color3 == undefined)
         color3 = 0
     document.getElementById('raw3').value = (color3 / .75).toFixed(2)
@@ -85,6 +114,7 @@ function calcraw3() {
 }
 
 function calctotal3() {
+    //checkUndefined()
     let colorring = 0
     let color3 = document.getElementById('color3').value
     let raw3 = document.getElementById('raw3').value
@@ -111,17 +141,17 @@ function calculate() {
     let total1 = parseInt(document.getElementById('total1').value)
     let total2 = parseInt(document.getElementById('total2').value)
     let total3 = parseInt(document.getElementById('total3').value)
-    let myWeight1 = parseInt(document.getElementById('color1').value)
-    let myWeight2 = parseInt(document.getElementById('color2').value)
-    let myWeight3 = parseInt(document.getElementById('color3').value)
-    console.log(myWeight1, myWeight2, myWeight3)
+    let myWeight1 = parseFloat(document.getElementById('color1').value)
+    let myWeight2 = parseFloat(document.getElementById('color2').value)
+    let myWeight3 = parseFloat(document.getElementById('color3').value)
     if (myWeight1 == 0)
-        myWeight1 = parseInt(document.getElementById('raw1').value)
+        myWeight1 = parseFloat(document.getElementById('raw1').value)
     if (myWeight2 == 0)
-        myWeight2 = parseInt(document.getElementById('raw2').value)
+        myWeight2 = parseFloat(document.getElementById('raw2').value)
     if (myWeight3 == 0)
-        myWeight3 = parseInt(document.getElementById('raw3').value)
+        myWeight3 = parseFloat(document.getElementById('raw3').value)
     grandTotal = total1 + total2 + total3
     totalWeight = myWeight1 + myWeight2 + myWeight3
-    document.getElementById('final').innerHTML = `एकूण रुपये ${grandTotal} एकूण वजन ${totalWeight}`
+    totalWeight = totalWeight.toFixed(2)
+    document.getElementById('final').innerHTML = `एकूण रुपये <b> ${grandTotal}/- </b> एकूण वजन ${totalWeight} कि. ग्रॅ.`
 }
