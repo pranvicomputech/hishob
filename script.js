@@ -10,34 +10,21 @@ let currentDate = `${day}-${month}-${year} ${dayName}`;
 document.getElementById('today').innerHTML = currentDate
 checkUndefined()
 function checkUndefined() {
-    //if (document.getElementById('total1').value == undefined)
         document.getElementById('total1').value = 0
-    //if (document.getElementById('total2').value == undefined)
         document.getElementById('total2').value = 0
-    //if (document.getElementById('total3').value == undefined)
         document.getElementById('total3').value = 0
-    //if (document.getElementById('color1').value == undefined)
         document.getElementById('color1').value = 0
-    //if (document.getElementById('color2').value == undefined)
         document.getElementById('color2').value = 0
-    //if (document.getElementById('color3').value == undefined)
         document.getElementById('color3').value = 0
-    //if (document.getElementById('raw1').value == undefined)
         document.getElementById('raw1').value = 0
-    //if (document.getElementById('raw2').value == undefined)
         document.getElementById('raw2').value = 0
-    //if (document.getElementById('raw3').value == undefined)
         document.getElementById('raw3').value = 0
-    //if (document.getElementById('rate1').value == undefined)
         document.getElementById('rate1').value = 0
-    //if (document.getElementById('rate2').value == undefined)
         document.getElementById('rate2').value = 0
-    //if (document.getElementById('rate3').value == undefined)
         document.getElementById('rate3').value = 0
 }
 
-function calcraw1() {
-    //checkUndefined()
+function calcraw1() {    
     let color1 = document.getElementById('color1').value
     if(color1 == '')
     document.getElementById('color1').value = 0
@@ -47,8 +34,7 @@ function calcraw1() {
     calctotal1()
 }
 
-function calctotal1() {
-    //checkUndefined()
+function calctotal1() {    
     let colorring = 0
     let color1 = document.getElementById('color1').value
     let raw1 = document.getElementById('raw1').value
@@ -69,8 +55,7 @@ function calctotal1() {
 }
 
 /////////////////////////////////
-function calcraw2() {
-    //checkUndefined()
+function calcraw2() {    
     let color2 = document.getElementById('color2').value
     if(color2 == '')
     document.getElementById('color2').value = 0
@@ -80,8 +65,7 @@ function calcraw2() {
     calctotal2()
 }
 
-function calctotal2() {
-    //checkUndefined()
+function calctotal2() {    
     let colorring = 0
     let color2 = document.getElementById('color2').value
     let raw2 = document.getElementById('raw2').value
@@ -102,8 +86,7 @@ function calctotal2() {
 }
 
 /////////////////////////////////
-function calcraw3() {
-    //checkUndefined()
+function calcraw3() {    
     let color3 = document.getElementById('color3').value
     if(color3 == '')
     document.getElementById('color3').value = 0
@@ -113,8 +96,7 @@ function calcraw3() {
     calctotal3()
 }
 
-function calctotal3() {
-    //checkUndefined()
+function calctotal3() {    
     let colorring = 0
     let color3 = document.getElementById('color3').value
     let raw3 = document.getElementById('raw3').value
