@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        .col {
+            margin: 1%;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            width: 20%;
+        }
+
+        input,
+        div {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body class="container mt-5">
+    <div>
+        <small id='today' align='right'></small>
+    </div>
+    <h2 class="text-danger">मे कमलाकर वामनराव ठाकूर </h2>
+    <h3 class="text-primary" id='final'>.</h3>
+    <table class="table table-bordered table-warning table-striped">
+        <thead>
+            <th>रंगीत</th>
+            <th>कोरे</th>
+            <th>भाव</th>
+            <th>रंगणी</th>
+            <th>एकूण</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="form-control" type="number" id='color1' onblur="calcraw1()"></td>
+                <td><input class="form-control" type="number" id='raw1'></td>
+                <td><input class="form-control" type="number" id='rate1' onblur="calctotal1()"></td>
+                <td><label id='clbr1'></label></td>
+                <td><input type="number" class="form-control" id='total1' disabled></input></td>
+            </tr>
+            <tr>
+                <td><input class="form-control" type="number" id='color2' onblur="calcraw2()"></td>
+                <td><input class="form-control" type="number" id='raw2'></td>
+                <td><input class="form-control" type="number" id='rate2' onblur="calctotal2()"></td>
+                <td><label id='clbr2'></label></td>
+                <td><input type="number" class="form-control" id='total2' disabled></input></td>
+            </tr>
+            <tr>
+                <td><input class="form-control" type="number" id='color3' onblur="calcraw3()"></td>
+                <td><input class="form-control" type="number" id='raw3'></td>
+                <td><input class="form-control" type="number" id='rate3' onblur="calctotal3()"></td>
+                <td><label id='clbr3'></label></td>
+                <td><input type="number" class="form-control" id='total3' disabled></input></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="./script.js"></script>
+</body>
+
+</html>
