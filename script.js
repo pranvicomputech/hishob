@@ -1,4 +1,5 @@
 let clbr = 270
+document.getElementById('clrrate').innerHTML = `रंगणी ${clbr}/-`
 const date = new Date();
 let day = date.getDate();
 let month = date.getMonth() + 1;
@@ -13,6 +14,9 @@ function checkUndefined() {
     document.getElementById('total1').value = 0
     document.getElementById('total2').value = 0
     document.getElementById('total3').value = 0
+    document.getElementById('trialTotal1').value = 0
+    document.getElementById('trialTotal2').value = 0
+    document.getElementById('trialTotal3').value = 0
     document.getElementById('color1').value = 0
     document.getElementById('color2').value = 0
     document.getElementById('color3').value = 0
@@ -47,9 +51,11 @@ function calctotal1() {
         colorring = 0
     }
     else
-        colorring = Math.ceil(raw1 * clbr)    
-    let total = raw1 * rate1 + colorring
+        colorring = Math.ceil(raw1 * clbr)
+    let trialTotal = Math.ceil(raw1 * rate1)
+    let total = trialTotal + colorring
     total = total.toFixed()
+    document.getElementById('trialTotal1').value = trialTotal
     document.getElementById('total1').value = total
     document.getElementById('clbr1').innerHTML = colorring
     calculate()
@@ -79,8 +85,10 @@ function calctotal2() {
     }
     else
         colorring = Math.ceil(raw2 * clbr)
-    let total = raw2 * rate2 + colorring
+    let trialTotal = Math.ceil(raw2 * rate2)    
+    let total = trialTotal + colorring
     total = total.toFixed()
+    document.getElementById('trialTotal2').value = trialTotal
     document.getElementById('total2').value = total
     document.getElementById('clbr2').innerHTML = colorring
     calculate()
@@ -110,8 +118,10 @@ function calctotal3() {
     }
     else
         colorring = Math.ceil(raw3 * clbr)
-    let total = raw3 * rate3 + colorring
+    let trialTotal = Math.ceil(raw3 * rate3)  
+    let total = trialTotal + colorring
     total = total.toFixed()
+    document.getElementById('trialTotal3').value = trialTotal
     document.getElementById('total3').value = total
     document.getElementById('clbr3').innerHTML = colorring
     calculate()
@@ -136,7 +146,7 @@ function calculate() {
     grandTotal = total1 + total2 + total3
     totalWeight = myWeight1 + myWeight2 + myWeight3
     totalWeight = totalWeight.toFixed(3)
-    let paid = parseInt(document.getElementById('return').value)    
+    let paid = parseInt(document.getElementById('return').value)
     let myReturn = paid - grandTotal
     document.getElementById('final').innerHTML = `एकूण ₹ <b> ${grandTotal}/- </b> <span class='float-right'>एकूण परत ₹ ${myReturn}</span> <br>एकूण वजन ${totalWeight} कि. ग्रॅ.`
 }
