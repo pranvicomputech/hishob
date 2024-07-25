@@ -51,8 +51,8 @@ function calctotal1() {
         colorring = 0
     }
     else
-        colorring = Math.ceil(raw1 * clbr)
-    let trialTotal = Math.ceil(raw1 * rate1)
+        colorring = Math.ceil((raw1 * clbr) / 5) * 5
+    let trialTotal = Math.ceil((raw1 * rate1) / 5) * 5
     let total = trialTotal + colorring
     total = total.toFixed()
     document.getElementById('trialTotal1').value = trialTotal
@@ -84,8 +84,8 @@ function calctotal2() {
         colorring = 0
     }
     else
-        colorring = Math.ceil(raw2 * clbr)
-    let trialTotal = Math.ceil(raw2 * rate2)    
+    colorring = Math.ceil((raw2 * clbr) / 5) * 5
+    let trialTotal = Math.ceil((raw2 * rate2) / 5) * 5
     let total = trialTotal + colorring
     total = total.toFixed()
     document.getElementById('trialTotal2').value = trialTotal
@@ -117,8 +117,8 @@ function calctotal3() {
         colorring = 0
     }
     else
-        colorring = Math.ceil(raw3 * clbr)
-    let trialTotal = Math.ceil(raw3 * rate3)  
+    colorring = Math.ceil((raw3 * clbr) / 5) * 5
+    let trialTotal = Math.ceil((raw3 * rate3) / 5) * 5
     let total = trialTotal + colorring
     total = total.toFixed()
     document.getElementById('trialTotal3').value = trialTotal
@@ -149,7 +149,7 @@ function calculate() {
     let paid = parseInt(document.getElementById('return').value)
     let myReturn = paid - grandTotal
     document.getElementById('final').innerHTML = `एकूण ₹ <b> ${grandTotal}/- </b> <span class='float-right'>एकूण परत ₹ ${myReturn}</span> <br>एकूण वजन ${totalWeight} कि. ग्रॅ.`
-    document.getElementById('tableFinal').innerHTML = `एकूण ₹ <b> ${grandTotal}/- </b> <span class='float-right'>एकूण वजन ${totalWeight} कि. ग्रॅ.</span>`    
+    document.getElementById('tableFinal').innerHTML = `एकूण ₹ <b> ${grandTotal}/- </b> <span class='float-right'>एकूण वजन ${totalWeight} कि. ग्रॅ.</span><br><small class="float-right" style="font-size:50%"> चूक भूल देणे घेणे</small>`
 }
 function printTable() {
     window.print();
