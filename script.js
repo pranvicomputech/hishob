@@ -84,7 +84,7 @@ function calctotal2() {
         colorring = 0
     }
     else
-    colorring = Math.ceil((raw2 * clbr) / 5) * 5
+        colorring = Math.ceil((raw2 * clbr) / 5) * 5
     let trialTotal = Math.ceil((raw2 * rate2) / 5) * 5
     let total = trialTotal + colorring
     total = total.toFixed()
@@ -117,7 +117,7 @@ function calctotal3() {
         colorring = 0
     }
     else
-    colorring = Math.ceil((raw3 * clbr) / 5) * 5
+        colorring = Math.ceil((raw3 * clbr) / 5) * 5
     let trialTotal = Math.ceil((raw3 * rate3) / 5) * 5
     let total = trialTotal + colorring
     total = total.toFixed()

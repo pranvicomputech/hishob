@@ -7,10 +7,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>रंगीत रेशमाचा हिशोब</title>
-    <style>
+    <style>        
         th {
             text-align: center;
-            vertical-align: text-top;
+            vertical-align: text-top;        
         }
 
         td {
@@ -41,7 +41,9 @@
             border-radius: 10px;
             background: linear-gradient(white, orange, white);
         }
-
+        .form-control{
+            background-color: rgba(0,0,0,0);
+        }
         /* Print-specific styles */
         @media print {
             body * {
@@ -79,13 +81,10 @@
     <div align="center">
         <small style="color: red; font-size: 70%;">||श्री|| </small>
     </div>
-    <div class="mx-auto box">
-        <p>
-            <small style="font-size: 70%;" id='today'></small>
-        </p>
+    <div class="mx-auto box">        
+            <small style="font-size: 70%; float: right;" id='today'></small>
         <h2 class="text-danger mx-auto" align="center" style="text-decoration: underline;">मे कमलाकर वामनराव ठाकूर </h2>
-        <small class="mx-auto text-muted">
-            <p id="clrrate"></p>
+        <div class="mx-auto text-muted" align="right" id = "clrrate"></div>            
         </small>
         <h3 class="text-primary" id='final'>.<br>. </h3>
         <table class="table-bordered table-warning table-striped table-hover table-print">
