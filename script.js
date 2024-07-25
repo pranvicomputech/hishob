@@ -149,4 +149,8 @@ function calculate() {
     let paid = parseInt(document.getElementById('return').value)
     let myReturn = paid - grandTotal
     document.getElementById('final').innerHTML = `एकूण ₹ <b> ${grandTotal}/- </b> <span class='float-right'>एकूण परत ₹ ${myReturn}</span> <br>एकूण वजन ${totalWeight} कि. ग्रॅ.`
+    document.getElementById('tableFinal').innerHTML = `एकूण ₹ <b> ${grandTotal}/- </b> <span class='float-right'>एकूण वजन ${totalWeight} कि. ग्रॅ.</span>`    
+}
+function printTable() {
+    window.print();
 }
