@@ -1,201 +1,105 @@
 <!DOCTYPE html>
 <html lang="mr">
-
 <head>
     <meta charset="UTF-8">
     <title>रंगीत रेशमाचा हिशोब</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
     <style>
-        th {
-            text-align: center;
-            vertical-align: text-top;
-        }
+        th { text-align: center; vertical-align: text-top; }
+        td { width: 15%; }
+        input, label { text-align: right; }
+        body { font-size: 150%; text-shadow: 0px 0px 1px violet; }
+        .form-control, label { font-size: 105%; padding: 0; margin: 0; }
+        .box { border: 3px groove red; padding: 0% 2% 5% 2%; border-radius: 10px; background: linear-gradient(white, orange, white); }
+        .form-control { background-color: rgba(0,0,0,0); }
 
-        td {
-            width: 15%;
-        }
-
-        input,
-        p,
-        label {
-            text-align: right;
-        }
-
-        body {
-            font-size: 150%;
-            text-shadow: 0px 0px 1px violet;
-        }
-
-        .form-control,
-        label {
-            font-size: 105%;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .box {
-            border: 3px groove red;
-            padding: 0% 2% 1% 2%;
-            border-radius: 10px;
-            background: linear-gradient(white, orange, white);
-        }
-
-        .form-control {
-            background-color: rgba(0, 0, 0, 0);
-        }
-
-        /* PRINT FIX AND SUPER COMPACT TABLE */
+        /* ================= PRINT ================= */
         @media print {
-            body * {
-                visibility: hidden;
-            }
-
-            .table-print,
-            .table-print * {
-                visibility: visible;
-            }
-
-            /* DATE CAPTION */
-            .table-print caption {
-                visibility: visible !important;
-                display: table-caption !important;
-                caption-side: top !important;
-                text-align: left !important;
-                font-size: 80% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                color: black !important;
-            }
-
-            /* COMPACT TABLE */
-            .table-print {
-                position: absolute;
-                left: 0;
-                top: 0;
-                right: 0;
-                width: 50%;
-                margin: 0 auto !important;
-                font-weight: normal;
-                /*font-size: 75%;*/
-                border-collapse: collapse !important;
-                font-size: 75%;
-            }
-
-            /* REMOVE PADDING & MARGIN FOR CELLS */
-            .table-print th,
-            .table-print td {
-                font-weight: normal;
-                margin: 0 !important;
-                padding: 0px !important;
-                /* very small padding */
-                line-height: 1 !important;
-                /* reduce vertical spacing */
-            }
-
-            /* COMPACT INPUTS */
-            .table-print input {
-                padding: 0px !important;
-                margin: 0px !important;
-                /*height: 18px !important;*/
-                /* reduce input height */
-                /*font-size: 70% !important;*/
-            }
+            body * { visibility: hidden; }
+            .table-print, .table-print * { visibility: visible; }
+            .table-print { position: absolute; top:0; left:0; right:0; width:45% !important; margin:auto; font-size:75%; border-collapse: collapse; }
+            .table-print caption { caption-side: top; text-align: right; font-size:80%; padding:0; margin:0; }
+            .table-print th, .table-print td { padding:0 !important; line-height:1; font-weight: normal; }
+            .table-print input { padding:0 !important; }
+            .table-print th:nth-child(5) { font-size:65% !important; white-space:nowrap; }
+            .table-print tbody tr { display:none; }
+            .table-print tbody tr:not(.empty-row) { display:table-row; }
         }
 
-        h3 {
-            font-size: 100%;
-        }
+        h3 { font-size:100%; }
     </style>
 </head>
 
 <body class="container-fluid">
 
-    <div align="center">
-        <small style="color: red; font-size: 70%;">||श्री|| </small>
-    </div>
+<div align="center">
+    <small style="color:red;font-size:70%;">||श्री||</small>
+</div>
 
-    <div class="mx-auto box">
+<div class="mx-auto box">
+    <h2 class="text-danger text-center" style="text-decoration:underline;">
+        मे कमलाकर वामनराव ठाकूर
+    </h2>
 
-        <h2 class="text-danger mx-auto text-center" style="text-decoration: underline;">मे कमलाकर वामनराव ठाकूर</h2>
-        <div class="mx-auto text-muted text-right" id="clrrate"></div>
+    <div class="text-muted text-right" id="clrrate"></div>
+    <h3 class="text-primary" id="final">.<br>.</h3>
 
-        <h3 class="text-primary" id='final'>.<br>.</h3>
+    <table class="table-bordered table-warning table-striped table-hover table-print">
+        <caption><small id="today"></small></caption>
 
-        <!-- TABLE START -->
-        <table class="table-bordered table-warning table-striped table-hover table-print">
+        <thead>
+            <tr>
+                <th>रंगीत</th>
+                <th>कोरे</th>
+                <th>भाव</th>
+                <th>एकूण</th>
+                <th>रंगणी / मजुरी</th>
+                <th>Final</th>
+            </tr>
+        </thead>
 
-            <!-- DATE AT TOP LEFT OF TABLE -->
-            <caption style="caption-side: top; text-align: left; font-size: 80%; margin:0; padding:0; color:black;">
-                <small id="today"></small>
-            </caption>
+        <tbody>
+            <tr>
+                <td><input class="form-control" id="color1" type="number" onblur="calcraw(1)"></td>
+                <td><input class="form-control" id="raw1" type="number"></td>
+                <td><input class="form-control" id="rate1" type="number" onblur="calculateRow(1)"></td>
+                <td><input class="form-control" id="trialTotal1" type="number" disabled></td>
+                <td><input class="form-control" id="clbr1" type="number" onblur="calculateRow(1)"></td>
+                <td><input class="form-control" id="total1" type="number" disabled></td>
+            </tr>
 
-            <thead>
-                <tr>
-                    <th>रंगीत</th>
-                    <th>कोरे</th>
-                    <th>भाव</th>
-                    <th>एकूण</th>
-                    <th>रंगणी</th>
-                    <th>Final</th>
-                </tr>
-            </thead>
+            <tr>
+                <td><input class="form-control" id="color2" type="number" onblur="calcraw(2)"></td>
+                <td><input class="form-control" id="raw2" type="number"></td>
+                <td><input class="form-control" id="rate2" type="number" onblur="calculateRow(2)"></td>
+                <td><input class="form-control" id="trialTotal2" type="number" disabled></td>
+                <td><input class="form-control" id="clbr2" type="number" onblur="calculateRow(2)"></td>
+                <td><input class="form-control" id="total2" type="number" disabled></td>
+            </tr>
 
-            <tbody>
-                <tr>
-                    <td><input class="form-control" type="number" id='color1' onblur="calcraw1()"
-                            onfocus="this.value = ''"></td>
-                    <td><input class="form-control" type="number" id='raw1'></td>
-                    <td><input class="form-control" type="number" id='rate1' onblur="calctotal1()"
-                            onfocus="this.value = ''"></td>
-                    <td><input type="number" class="form-control" id='trialTotal1' disabled></td>
-                    <td align="right"><label id='clbr1'></label></td>
-                    <td><input type="number" class="form-control" id='total1' disabled></td>
-                </tr>
+            <tr>
+                <td><input class="form-control" id="color3" type="number" onblur="calcraw(3)"></td>
+                <td><input class="form-control" id="raw3" type="number"></td>
+                <td><input class="form-control" id="rate3" type="number" onblur="calculateRow(3)"></td>
+                <td><input class="form-control" id="trialTotal3" type="number" disabled></td>
+                <td><input class="form-control" id="clbr3" type="number" onblur="calculateRow(3)"></td>
+                <td><input class="form-control" id="total3" type="number" disabled></td>
+            </tr>
 
-                <tr>
-                    <td><input class="form-control" type="number" id='color2' onblur="calcraw2()"
-                            onfocus="this.value = ''"></td>
-                    <td><input class="form-control" type="number" id='raw2'></td>
-                    <td><input class="form-control" type="number" id='rate2' onblur="calctotal2()"
-                            onfocus="this.value = ''"></td>
-                    <td><input type="number" class="form-control" id='trialTotal2' disabled></td>
-                    <td align="right"><label id='clbr2'></label></td>
-                    <td><input type="number" class="form-control" id='total2' disabled></td>
-                </tr>
+            <tr>
+                <td colspan="6"><h3 id="tableFinal"></h3></td>
+            </tr>
+        </tbody>
+    </table>
 
-                <tr>
-                    <td><input class="form-control" type="number" id='color3' onblur="calcraw3()"
-                            onfocus="this.value = ''"></td>
-                    <td><input class="form-control" type="number" id='raw3'></td>
-                    <td><input class="form-control" type="number" id='rate3' onblur="calctotal3()"
-                            onfocus="this.value = ''"></td>
-                    <td><input type="number" class="form-control" id='trialTotal3' disabled></td>
-                    <td align="right"><label id='clbr3'></label></td>
-                    <td><input type="number" class="form-control" id='total3' disabled></td>
-                </tr>
+    <label class="float-left m-2">एकूण दिलेले पैसे</label>
+    <input id="return" class="w-50 float-left form-control my-2" type="number" onblur="calculate()">
+</div>
 
-                <tr>
-                    <td colspan="6">
-                        <h3 id='tableFinal'></h3>
-                    </td>
-                </tr>
-            </tbody>
+<div align="center" style="margin-top:20px;">
+    <button class="btn btn-primary" onclick="printTable()">Print</button>
+</div>
 
-        </table>
-
-        <label class="float-left m-2">एकूण दिलेले पैसे</label>
-        <input type="number" id='return' class="w-50 float-left form-control my-2" onfocus="this.value = ''"
-            onblur="calculate()">
-
-        <button class="btn btn-outline-success btn-block" disabled>Touch here</button>
-    </div>
-
-    <div align="center" style="margin-top: 20px;">
-        <button class="btn btn-primary" onclick="printTable()">Print</button>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
