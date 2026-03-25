@@ -1,10 +1,10 @@
-const clbrRate = 270;
+const clbrRate = 300;
 document.getElementById("clrrate").innerHTML = `रंगणी ${clbrRate}/-`;
 
 // Date
 const d = new Date();
-const days = ["रविवार","सोमवार","मंगळवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
-document.getElementById("today").innerHTML = `${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()} ${days[d.getDay()]}`;
+const days = ["रविवार", "सोमवार", "मंगळवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"];
+document.getElementById("today").innerHTML = `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()} ${days[d.getDay()]}`;
 
 // Initialize all input fields as empty
 for (let i = 1; i <= 3; i++) {
@@ -18,14 +18,14 @@ for (let i = 1; i <= 3; i++) {
 document.getElementById('return').value = '';
 
 // Calculate raw from color
-function calcraw(i){
+function calcraw(i) {
     let color = parseFloat(document.getElementById(`color${i}`).value) || 0;
     document.getElementById(`raw${i}`).value = color ? (color / 0.75).toFixed(3) : '';
     calculateRow(i);
 }
 
 // Calculate row totals
-function calculateRow(i){
+function calculateRow(i) {
     let color = parseFloat(document.getElementById(`color${i}`).value) || 0;
     let raw = parseFloat(document.getElementById(`raw${i}`).value) || 0;
     let rate = parseFloat(document.getElementById(`rate${i}`).value) || 0;
@@ -33,13 +33,13 @@ function calculateRow(i){
     let clbr = parseFloat(clbrInput.value) || 0;
 
     // Auto-calc only if रंगीत > 0 and clbr empty
-    if(color > 0 && clbr === 0){
-        clbr = Math.ceil((raw * clbrRate)/5)*5;
+    if (color > 0 && clbr === 0) {
+        clbr = Math.ceil((raw * clbrRate) / 5) * 5;
         clbrInput.value = clbr;
     }
 
     // Trial total
-    let trialTotal = Math.ceil((raw * rate)/5)*5;
+    let trialTotal = Math.ceil((raw * rate) / 5) * 5;
     document.getElementById(`trialTotal${i}`).value = trialTotal || '';
 
     // Total
@@ -47,11 +47,11 @@ function calculateRow(i){
 
     calculate();
 }
-function calculate(){
+function calculate() {
     let grandTotal = 0;
     let totalWeight = 0;
 
-    for(let i=1;i<=3;i++){
+    for (let i = 1; i <= 3; i++) {
         let color = parseFloat(document.getElementById(`color${i}`).value) || 0;
         let raw = parseFloat(document.getElementById(`raw${i}`).value) || 0;
         let total = parseFloat(document.getElementById(`total${i}`).value) || 0;
@@ -101,12 +101,12 @@ function calculate(){
 }
 */
 // Print table
-function printTable(){
-    document.querySelectorAll("table.table-print tbody tr").forEach((row,i)=>{
-        if(i<3){
-            let color = document.getElementById(`color${i+1}`).value;
-            let raw = document.getElementById(`raw${i+1}`).value;
-            let rate = document.getElementById(`rate${i+1}`).value;
+function printTable() {
+    document.querySelectorAll("table.table-print tbody tr").forEach((row, i) => {
+        if (i < 3) {
+            let color = document.getElementById(`color${i + 1}`).value;
+            let raw = document.getElementById(`raw${i + 1}`).value;
+            let rate = document.getElementById(`rate${i + 1}`).value;
             row.classList.toggle('empty-row', (!color && !raw && !rate));
         }
     });
