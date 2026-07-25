@@ -1,10 +1,42 @@
 const clbrRate = 300;
 document.getElementById("clrrate").innerHTML = `रंगणी ${clbrRate}/-`;
 
+/*
 // Date
 const d = new Date();
 const days = ["रविवार", "सोमवार", "मंगळवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"];
 document.getElementById("today").innerHTML = `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()} ${days[d.getDay()]}`;
+*/
+// ================= Date & Time =================
+const days = [
+    "रविवार",
+    "सोमवार",
+    "मंगळवार",
+    "बुधवार",
+    "गुरुवार",
+    "शुक्रवार",
+    "शनिवार"
+];
+
+function updateDateTime() {
+    const d = new Date();
+
+    const day = d.getDate();
+    const month = d.getMonth() + 1;
+    const year = d.getFullYear();
+
+    const time = d.toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+    });
+
+    document.getElementById("today").innerHTML =
+        `${day}-${month}-${year} ${days[d.getDay()]} ${time}`;
+}
+
+// Initial display
+updateDateTime();
 
 // Initialize all input fields as empty
 for (let i = 1; i <= 3; i++) {
@@ -102,6 +134,7 @@ function calculate(){
 */
 // Print table
 function printTable() {
+    updateDateTime()
     document.querySelectorAll("table.table-print tbody tr").forEach((row, i) => {
         if (i < 3) {
             let color = document.getElementById(`color${i + 1}`).value;
